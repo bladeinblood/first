@@ -163,7 +163,7 @@ async def unmute(ctx, member: discord.Member, *, reason = None):
 
 #unban
 @client.command(pass_context = True)
-
+@commands.has_permissions(administrator = True)
 async def unban(ctx, *, member):
     await ctx.channel.purge(limit = 1)
     
@@ -179,6 +179,13 @@ async def unban(ctx, *, member):
             f.write(f'{user.mention} unbanned') 
 
         return
+    
+    
+@client.command(pass_context = True)
+@commands.has_permissions(administrator = true)
+async def filter(ctx, message):
+    if "программист" in message.lower():
+        await ctx.send('Если хочешь вступить в команду программистов, то обратись к овнеру blade in blood#6719')
 
         
 
